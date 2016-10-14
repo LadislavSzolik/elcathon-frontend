@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html ng-app='ctnApp' xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+    <head>
+        <title>Mathematics</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+
+        <script src="https://www.dropbox.com/static/api/dropbox-datastores-1.0-latest.js" type="text/javascript"></script>
+
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+
+        <script src="js/app.js"></script>
+
+    </head>
+
+    <body>
+        <div class="view-container" style="margin-bottom:5px">
+          <h1>Today</h1>
+          <div class="day-schedule-container" ng-controller="dayScheduleCtrl">
+              <ul >
+                <li ng-repeat="task in tasks">
+                  <input type="checkbox" name="zutat" value="">{{task}}
+
+                </li>
+              </ul>
+          </div>
+        </div>
+    </body>
+
+    </html>
