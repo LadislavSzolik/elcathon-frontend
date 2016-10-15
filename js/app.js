@@ -1,4 +1,19 @@
-var ctnApp = angular.module('ctnApp',[]);
+var ctnApp = angular.module('ctnApp',['ngRoute']);
+
+ctnApp.config(['$routeProvider', function($routeProvider){
+  $routeProvider.when('/login', {
+    templateUrl: 'login.html'
+  })
+  .when('/search',{
+    templateUrl: 'search.html'
+  })
+  .when('/overview', {
+    templateUrl: 'overview.html'
+  })
+  .otherwise({
+    redirectTo: '/login'
+  });
+}]);
 
 ctnApp.controller('dayScheduleCtrl', ['$scope', function($scope){
 
