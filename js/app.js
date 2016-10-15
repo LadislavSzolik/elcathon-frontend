@@ -19,13 +19,13 @@ ctnApp.config(['$routeProvider', function($routeProvider) {
         });
 }]);
 
-ctnApp.controller('loginCtrl', ['$scope', '$window', function($scope, $window) {
+ctnApp.controller('loginCtrl', ['$scope', '$window', 'SharedBackend', function($scope, $window,SharedBackend) {
   $scope.goSearch = function(){
     $window.location.href = '#/search';
   };
 }]);
 
-ctnApp.controller('stepCtrl', ['$scope', function($scope) {
+ctnApp.controller('stepCtrl', ['$scope','SharedBackend', function($scope, SharedBackend) {
 
     $scope.showPrevious = function() {
         for (var i = 0; i < $scope.listOfTasks.length; i++) {
@@ -58,13 +58,27 @@ ctnApp.controller('stepCtrl', ['$scope', function($scope) {
               if ($scope.listOfTasks[i + 1] != null) {
                   $scope.listOfTasks[i].isCurrent = false;
                   $scope.listOfTasks[i + 1].isCurrent = true;
+              }else {
+                SharedBackend.listOfHowTo[0].inprogress = false;
+                SharedBackend.listOfHowTo[1].isRecommended = true;
+                SharedBackend.listOfHowTo[2].isRecommended = true;
+                SharedBackend.listOfHowTo[3].isRecommended = false;
+                SharedBackend.listOfHowTo[4].isRecommended = false;
               }
               break
           }
       }
+
+
+
     }
 
-
+    for(var i=0; i<SharedBackend.listOfHowTo.length; i++) {
+      if(SharedBackend.currID == SharedBackend.listOfHowTo[i].ID) {
+        $scope.listOfTasks = SharedBackend.listOfHowTo[i].listOfTasks;
+        $scope.title = SharedBackend.listOfHowTo[i].title;
+      }
+    }
 
 }]);
 
