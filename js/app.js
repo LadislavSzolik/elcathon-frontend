@@ -79,6 +79,10 @@ ctnApp.controller('searchCtrl', ['$scope', '$window', 'SharedBackend', function(
       }
     }
 
+    $scope.openmenu = function(){
+
+    }
+
     $scope.goOverview = function(){
       $window.location.href = '#/overview';
     };
