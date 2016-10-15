@@ -9,17 +9,21 @@ BackendService.factory('SharedBackend', function() {
             title: "Get a driving license in Switzerland",
             inprogress: true,
             listOfTasks: [{
-                title: "1. Choose the bank",
+                title: "1. Gather documents",
                 desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem I",
                 isDone: true,
                 isCurrent: false
             }, {
-                title: "2. Go to the bank",
+                title: "2. Take eye test",
                 desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem I",
                 isDone: false,
                 isCurrent: true
             }, {
-                title: "3. Choose your plan",
+                title: "3. Take theoretical test",
+                desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem I",
+                isDone: false
+            }, {
+                title: "4. Take practical test",
                 desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem I",
                 isDone: false
             }]
@@ -27,7 +31,26 @@ BackendService.factory('SharedBackend', function() {
         {
             title: "Buy a new Car",
             inprogress: false,
-            isRecommended: false
+            isRecommended: false,
+            listOfTasks: [{
+                title: "1. Choose vehicle",
+                desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem I",
+                isDone: false,
+                isCurrent: false
+            }, {
+                title: "2. Get a license plate",
+                desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem I",
+                isDone: false,
+                isCurrent: true
+            }, {
+                title: "3. Get and insurance",
+                desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem I",
+                isDone: false
+            }, {
+                title: "4. Spend all your dear money",
+                desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem I",
+                isDone: false
+            }]
         },
         {
             title: "Apply for car sharing at Mobility",
