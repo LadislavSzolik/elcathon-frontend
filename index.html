@@ -22,17 +22,8 @@
     </head>
 
     <body>
-        <div class="view-container" style="margin-bottom:5px">
-          <h1>Today</h1>
-          <div class="day-schedule-container" ng-controller="dayScheduleCtrl">
-              <ul >
-                <li ng-repeat="task in tasks">
-                  <input type="checkbox" name="zutat" value="">{{task}}
-
-                </li>
-              </ul>
-          </div>
-        </div>
+        <div class="ng-view">   </div>
+        
     </body>
 
     </html>
