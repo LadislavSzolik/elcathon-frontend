@@ -1,0 +1,17 @@
+<div class="container-fluid"  ng-controller="myProgressCtrl">
+
+  <div class="row">
+    <div class="col-xs-5 logo">
+      <b>My Progress</b>
+    </div>
+    <div class="col-xs-2 col-xs-offset-5">
+      <ng-md-icon icon="menu" size="32" style="fill:purple"/>
+    </div>
+  </div>
+  <br/>
+  <br/>
+
+  <div style="float:left" ng-repeat="task in taskInProgress">
+    <button type="submit" class="topic-btn" ng-click="goOverview()">{{task}}</button>
+  </div>
+</div>

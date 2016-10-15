@@ -15,22 +15,25 @@
     <div >
   </div>
 
+
+
+  <div class="row">
+    <div class="col-xs-3" style="float:none; margin: 0 auto;line-height:2.5em">
+      Recommended for you
+    </div>
+  </div>
+
+  <div style="float:left" ng-repeat="howto in recommended">
+    <button type="submit" class="topic-btn" ng-click="goOverview()">{{howto.title}}</button>
+  </div>
+
   <div class="row">
     <div>
       <input type="text" class="form-control" placeholder="Search" ng-model="searchFilter" />
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-xs-3" style="float:none; margin: 0 auto;line-height:2.5em">
-      Most Popular
-    </div>
-  </div>
-
-
-
-
-  <div style="float:left" ng-repeat="howto in howtos|filter:searchFilter">
-    <button type="submit" class="topic-btn" ng-click="goOverview()">{{howto}}</button>
+  <div style="float:left" ng-repeat="howto in otherHowTo|filter:searchFilter">
+    <button type="submit" class="topic-btn" ng-click="goOverview()">{{howto.title}}</button>
   </div>
 </div>

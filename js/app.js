@@ -1,4 +1,4 @@
-var ctnApp = angular.module('ctnApp', ['ngRoute', 'ngMdIcons']);
+var ctnApp = angular.module('ctnApp', ['ngRoute', 'ngMdIcons', 'BackendService']);
 
 ctnApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/login', {
@@ -11,6 +11,8 @@ ctnApp.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'overview.html'
         }).when('/step', {
             templateUrl: 'step.html'
+        }).when('/myprogress', {
+            templateUrl: 'myprogress.html'
         })
         .otherwise({
             redirectTo: '/login'
@@ -25,23 +27,6 @@ ctnApp.controller('loginCtrl', ['$scope', '$window', function($scope, $window) {
 
 ctnApp.controller('stepCtrl', ['$scope', function($scope) {
 
-
-
-    $scope.listOfTasks = [{
-        title: "1. Choose the bank",
-        desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem I",
-        isDone: true,
-        isCurrent: false
-    }, {
-        title: "2. Go to the bank",
-        desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem I",
-        isDone: false,
-        isCurrent: true
-    }, {
-        title: "3. Choose your plan",
-        desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem I",
-        isDone: false
-    }];
     $scope.showPrevious = function() {
         for (var i = 0; i < $scope.listOfTasks.length; i++) {
             if ($scope.listOfTasks[i].isCurrent == true) {
@@ -83,14 +68,33 @@ ctnApp.controller('stepCtrl', ['$scope', function($scope) {
 
 }]);
 
-ctnApp.controller('searchCtrl', ['$scope', '$window', function($scope, $window) {
-
-    $scope.howtos = ['Open a bank account', 'Get a driver\'s license', 'Buy a new house'];
+ctnApp.controller('searchCtrl', ['$scope', '$window', 'SharedBackend', function($scope, $window, SharedBackend) {
+    $scope.recommended = [];
+    $scope.otherHowTo = [];
+    for(var i=0; i<SharedBackend.listOfHowTo.length; i++) {
+      if(SharedBackend.listOfHowTo[i].isRecommended) {
+        $scope.recommended.push(SharedBackend.listOfHowTo[i]);
+      } else {
+        $scope.otherHowTo.push(SharedBackend.listOfHowTo[i]);
+      }
+    }
 
     $scope.goOverview = function(){
       $window.location.href = '#/overview';
     };
+
+
 }]);
+
+ctnApp.controller('myProgressCtrl', ['$scope', function($scope) {
+  $scope.taskInProgress = ['Get a driving license in Switzerland'];
+
+  $scope.goOverview = function(){
+    $window.location.href = '#/overview';
+  };
+}]);
+
+
 
 ctnApp.controller('overviewCtrl', ['$scope', '$window', function($scope, $window) {
 
