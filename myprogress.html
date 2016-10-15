@@ -1,17 +1,28 @@
 <div class="container-fluid"  ng-controller="myProgressCtrl">
 
+
   <div class="row">
     <div class="col-xs-5 logo">
       <b>My Progress</b>
     </div>
     <div class="col-xs-2 col-xs-offset-5">
-      <ng-md-icon icon="menu" size="32" style="fill:purple"/>
+      <ng-md-icon icon="menu" size="32" ng-click="isEnabled = !isEnabled" style="fill:purple"/>
     </div>
   </div>
+
+  <div class="myhidden-menu" ng-class="{'myvisible-menu': isEnabled}" style="color:grey; line-height: 2em;">
+    <ul class="list-unstyled" style="margin: 20px">
+      <li><a href="#/myprogress">My Progress</a></li>
+      <li><a href="#/search">Search</a></li>
+      <li><a href="#/login">Logout</a></li>
+      <li><a href="#/search">Settings</a></li>
+    </ul>
+  </div>
+
   <br/>
   <br/>
 
   <div style="float:left" ng-repeat="task in taskInProgress">
-    <button type="submit" class="topic-btn" ng-click="goOverview(task.ID)">{{task}}</button>
+    <button type="submit" class="topic-btn" ng-click="goOverview(task.ID)">{{task.title}}</button>
   </div>
 </div>
