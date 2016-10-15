@@ -112,7 +112,13 @@ ctnApp.controller('searchCtrl', ['$scope', '$window', 'SharedBackend', function(
 ctnApp.controller('myProgressCtrl', ['$scope', function($scope) {
   $scope.taskInProgress = ['Get a driving license in Switzerland'];
 
-  $scope.goOverview = function(){
+  $scope.goOverview = function(selectedId){
+
+    for(var i=0; i< SharedBackend.listOfHowTo.length; i++) {
+      if(selectedId == SharedBackend.listOfHowTo[i].ID) {
+        SharedBackend.currID = 1;
+      }
+    }
     $window.location.href = '#/overview';
   };
 }]);

@@ -12,6 +12,6 @@
   <br/>
 
   <div style="float:left" ng-repeat="task in taskInProgress">
-    <button type="submit" class="topic-btn" ng-click="goOverview()">{{task}}</button>
+    <button type="submit" class="topic-btn" ng-click="goOverview(task.ID)">{{task}}</button>
   </div>
 </div>
