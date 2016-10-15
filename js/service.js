@@ -5,8 +5,11 @@ var BackendService = angular.module('BackendService', [])
 
 BackendService.factory('SharedBackend', function() {
 
+    this.currID = 0;
+
     this.listOfHowTo = [{
             title: "Get a driving license in Switzerland",
+            ID: 1,
             inprogress: true,
             listOfTasks: [{
                 title: "1. Gather documents",
@@ -30,6 +33,7 @@ BackendService.factory('SharedBackend', function() {
         },
         {
             title: "Buy a new Car",
+            ID: 2,
             inprogress: false,
             isRecommended: false,
             listOfTasks: [{
@@ -54,16 +58,19 @@ BackendService.factory('SharedBackend', function() {
         },
         {
             title: "Apply for car sharing at Mobility",
+            ID: 4,
             inprogress: false,
             isRecommended: false
         },
         {
             title: "Marry a woman from outside Switzerland",
+            ID: 5,
             inprogress: false,
             isRecommended: true
         },
         {
             title: "Choose a good insurance",
+            ID: 6,
             inprogress: false,
             isRecommended: true
         }

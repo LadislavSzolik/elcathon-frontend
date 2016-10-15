@@ -96,7 +96,7 @@ ctnApp.controller('myProgressCtrl', ['$scope', function($scope) {
 
 
 
-ctnApp.controller('overviewCtrl', ['$scope', '$window', function($scope, $window) {
+ctnApp.controller('overviewCtrl', ['$scope', '$window', 'SharedBackend', function($scope, $window, SharedBackend) {
 
   $scope.editEnabled = false;
 
@@ -114,19 +114,12 @@ $scope.restartSteps = function() {
   }
 }
 
-$scope.listOfTasks = [{
-        title: "1. Choose the bank",
-        desc: "",
-        isDone: true
-    }, {
-        title: "2. Go to the bank",
-        desc: "",
-        isDone: true
-    }, {
-        title: "3. Choose your plan",
-        desc: "",
-        isDone: false
-    }];
+for(var i=0; i<SharedBackend.listOfHowTo.length; i++) {
+  if(SharedBackend.currID == SharedBackend.listOfHowTo[i].ID) {
+    $scope.listOfTasks = SharedBackend.listOfHowTo[i].listOfTasks;
+    $scope.title = SharedBackend.listOfHowTo[i].title;
+  }
+}
 
   $scope.start = function() {
     $window.location.href = "#/step";
