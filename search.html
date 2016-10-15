@@ -1,0 +1,36 @@
+<div class="container-fluid"  ng-controller="searchCtrl">
+
+  <div class="row">
+    <div class="col-xs-4 logo">
+      <b>Swissy Life</b>
+    </div>
+    <div class="col-xs-2 col-xs-offset-6">
+      <ng-md-icon icon="menu" size="32" style="fill:purple"/>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+    <h3>I want to</h3>
+    <div >
+  </div>
+
+  <div class="row">
+    <div>
+      <input type="text" class="form-control" placeholder="Search" ng-model="searchFilter" />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3" style="float:none; margin: 0 auto;line-height:2.5em">
+      Most Popular
+    </div>
+  </div>
+
+
+
+
+  <div style="float:left" ng-repeat="howto in howtos|filter:searchFilter">
+    <button type="submit" class="topic-btn">{{howto}}</button>
+  </div>
+</div>

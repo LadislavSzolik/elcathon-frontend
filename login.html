@@ -1,10 +1,9 @@
 <div class="view-container" style="margin-bottom:5px">
-  <h1>Today</h1>
-  <div class="day-schedule-container" ng-controller="dayScheduleCtrl">
-      <ul >
-        <li ng-repeat="task in tasks">
-          <input type="checkbox" name="zutat" value="">{{task}}
-        </li>
-      </ul>
+  <h1>Welcome in Swissy Life</h1>
+  <div class="day-schedule-container" ng-controller="loginCtrl">
+      <input type="text" class="form-control" placeholder="Enter your user name" />
+      <input  type="text" class="form-control" placeholder="Enter your password"/>
+      <button type="submit" class="btn btn-primary">Sign in</button>
+      <button type="submit" class="btn btn-default">Register</button>
   </div>
 </div>
