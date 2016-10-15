@@ -17,8 +17,10 @@ ctnApp.config(['$routeProvider', function($routeProvider) {
         });
 }]);
 
-ctnApp.controller('loginCtrl', ['$scope', function($scope) {
-
+ctnApp.controller('loginCtrl', ['$scope', '$window', function($scope, $window) {
+  $scope.goSearch = function(){
+    $window.location.href = '#/search';
+  };
 }]);
 
 ctnApp.controller('stepCtrl', ['$scope', function($scope) {
@@ -81,11 +83,16 @@ ctnApp.controller('stepCtrl', ['$scope', function($scope) {
 
 }]);
 
-ctnApp.controller('searchCtrl', ['$scope', function($scope) {
+ctnApp.controller('searchCtrl', ['$scope', '$window', function($scope, $window) {
+
     $scope.howtos = ['Open a bank account', 'Get a driver\'s license', 'Buy a new house'];
+
+    $scope.goOverview = function(){
+      $window.location.href = '#/overview';
+    };
 }]);
 
-ctnApp.controller('overviewCtrl', ['$scope', function($scope) {
+ctnApp.controller('overviewCtrl', ['$scope', '$window', function($scope, $window) {
 
   $scope.editEnabled = false;
 
@@ -103,7 +110,7 @@ $scope.restartSteps = function() {
   }
 }
 
-    $scope.listOfTasks = [{
+$scope.listOfTasks = [{
         title: "1. Choose the bank",
         desc: "",
         isDone: true
@@ -116,4 +123,8 @@ $scope.restartSteps = function() {
         desc: "",
         isDone: false
     }];
+
+  $scope.start = function() {
+    $window.location.href = "#/step";
+  }
 }]);
