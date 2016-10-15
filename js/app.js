@@ -17,8 +17,10 @@ ctnApp.config(['$routeProvider', function($routeProvider) {
         });
 }]);
 
-ctnApp.controller('loginCtrl', ['$scope', function($scope) {
-
+ctnApp.controller('loginCtrl', ['$scope', '$window', function($scope, $window) {
+  $scope.goSearch = function(){
+    $window.location.href = '#/search';
+  };
 }]);
 
 ctnApp.controller('stepCtrl', ['$scope', function($scope) {
@@ -36,7 +38,7 @@ ctnApp.controller('stepCtrl', ['$scope', function($scope) {
         isDone: false,
         isCurrent: true
     }, {
-        title: "3. Choosse your plan",
+        title: "3. Choose your plan",
         desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem I",
         isDone: false
     }];
@@ -81,11 +83,16 @@ ctnApp.controller('stepCtrl', ['$scope', function($scope) {
 
 }]);
 
-ctnApp.controller('searchCtrl', ['$scope', function($scope) {
-    $scope.howtos = ['Take out the Trash', 'Play a good game', 'Buy a new house'];
+ctnApp.controller('searchCtrl', ['$scope', '$window', function($scope, $window) {
+
+    $scope.howtos = ['Open a bank account', 'Get a driver\'s license', 'Buy a new house'];
+
+    $scope.goOverview = function(){
+      $window.location.href = '#/overview';
+    };
 }]);
 
-ctnApp.controller('overviewCtrl', ['$scope', function($scope) {
+ctnApp.controller('overviewCtrl', ['$scope', '$window', function($scope, $window) {
 
   $scope.editEnabled = false;
 
@@ -103,7 +110,7 @@ $scope.restartSteps = function() {
   }
 }
 
-    $scope.listOfTasks = [{
+$scope.listOfTasks = [{
         title: "1. Choose the bank",
         desc: "",
         isDone: true
@@ -112,8 +119,12 @@ $scope.restartSteps = function() {
         desc: "",
         isDone: true
     }, {
-        title: "3. Choosse your plan",
+        title: "3. Choose your plan",
         desc: "",
         isDone: false
     }];
+
+  $scope.start = function() {
+    $window.location.href = "#/step";
+  }
 }]);
