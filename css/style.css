@@ -3,6 +3,11 @@ body {
   line-height: 1.2em;
 }
 
+.menu-background {
+  background-color: #EBEBEB;
+  text-align: right;
+}
+
 .topic-btn {
   font-size: 18px;
   width: 140px;
